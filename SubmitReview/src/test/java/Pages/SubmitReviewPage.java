@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class SubmitReviewPage {
 
@@ -29,6 +30,8 @@ public class SubmitReviewPage {
 	@FindBy(how = How.XPATH,using  = "//textarea[@id='ReviewText']") WebElement YourReview;
 	@FindBy(how = How.XPATH,using = "//div[@class='c-cell jfy_cloud tag content category-Business']") WebElement SelectSortTripName;
 	@FindBy(how = How.XPATH,using = "//select[@id='trip_date_month_year']") WebElement SelectTravelDate;
+	@FindBy(how = How.ID,using = "noFraud") WebElement checkbox;
+	@FindBy(how = How.ID,using = "SUBMIT") WebElement Submit;
 	
 	
 	public void ClickOnSearchBox() {
@@ -44,7 +47,6 @@ public class SubmitReviewPage {
 	}
 	public void SelectFirstName() {
 		SelectSearchElement.click();
-//		System.out.println(driver.getTitle());
 	}
 	
 	public void SwitchToNewWindow() {
@@ -53,29 +55,58 @@ public class SubmitReviewPage {
 		String parentwindowid = it.next();		
 		String childwindowid = it.next();
 		driver.switchTo().window(childwindowid);
-		driver.manage().window().maximize();
 		System.out.println(driver.getTitle());
 	}
 	
 	public void ScrollDown() throws Exception {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("window.scrollBy(0,3300)");
-        
+        jse.executeScript("window.scrollBy(0,2500)");   
 	}
 	public void WriteReview() {
 		ClickWriteReviewButton.click();
 		System.out.println(driver.getTitle());
 	}
 	public void SwitchToChildWindow() {
-		Set<String> handler1 = driver.getWindowHandles();
-		Iterator<String> it = handler1.iterator();
-		String parentwindowid1 = it.next();		
-		String childwindowid1 = it.next();
-		driver.switchTo().window(childwindowid1);
-		driver.manage().window().maximize();
+		Set<String> handler = driver.getWindowHandles();
+		Iterator<String> it = handler.iterator();
+		String parentwindowid = it.next();		
+		String childwindowid = it.next();
+		String child2windowid = it.next();
+		driver.switchTo().window(child2windowid);
 		System.out.println(driver.getTitle());
 	}
+	
 	public void FiveStarRating() {
-		ClickOnRating.click();
+		for(int i=1; i<=5; i++) {
+			ClickOnRating.click();
+		}	
 	}
+	public void TitleName(String titlename) {
+		TitleReview.sendKeys(titlename);
+	}
+	public void ReviewDetails(String detailsreview) {
+		YourReview.sendKeys(detailsreview);
+	}
+	public void SortTrip() {
+		SelectSortTripName.click();		
+	}
+	public void Scrollslowly() throws Exception {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,500)");   
+	}
+	public void SelectDropDownValue(String date) {
+		Select dropdown = new Select(SelectTravelDate);
+		dropdown.selectByVisibleText(date);
+	}
+	public void ScrollSubmitButton() throws Exception {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,1500)");   
+	}
+	public void ClickCheckBox() {
+		checkbox.click();
+	}
+	public void SubmitButton() {
+		Submit.click();
+	}
+	
 }

@@ -2,31 +2,32 @@
 <testng-results ignored="2" total="3" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-12-28T15:36:39 IST" name="IPHONE_PRICE_VALUE" finished-at="2019-12-28T15:36:57 IST" duration-ms="18138">
+  <suite started-at="2019-12-31T10:07:56 IST" name="IPHONE_PRICE_VALUE" finished-at="2019-12-31T10:08:19 IST" duration-ms="22944">
     <groups>
     </groups>
-    <test started-at="2019-12-28T15:36:39 IST" name="Page Object Model Project" finished-at="2019-12-28T15:36:57 IST" duration-ms="18138">
+    <test started-at="2019-12-31T10:07:56 IST" name="Page Object Model Project" finished-at="2019-12-31T10:08:19 IST" duration-ms="22944">
       <class name="Test.TestBase">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:Test.TestBase@23986957]" started-at="2019-12-28T15:36:35 IST" name="initialize" finished-at="2019-12-28T15:36:39 IST" duration-ms="4402" status="PASS">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:Test.TestBase@23986957]" started-at="2019-12-31T10:07:52 IST" name="initialize" finished-at="2019-12-31T10:07:56 IST" duration-ms="3985" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method is-config="true" signature="TeardownTest()[pri:0, instance:Test.TestBase@23986957]" started-at="2019-12-28T15:36:57 IST" name="TeardownTest" finished-at="2019-12-28T15:36:58 IST" duration-ms="718" status="PASS">
+        <test-method is-config="true" signature="TeardownTest()[pri:0, instance:Test.TestBase@23986957]" started-at="2019-12-31T10:08:19 IST" name="TeardownTest" finished-at="2019-12-31T10:08:19 IST" duration-ms="711" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TeardownTest -->
       </class> <!-- Test.TestBase -->
       <class name="Test.SelectPriceValue">
-        <test-method signature="init()[pri:0, instance:Test.SelectPriceValue@23f7d05d]" started-at="2019-12-28T15:36:39 IST" name="init" finished-at="2019-12-28T15:36:57 IST" duration-ms="18109" status="FAIL">
+        <test-method signature="init()[pri:0, instance:Test.SelectPriceValue@23f7d05d]" started-at="2019-12-31T10:07:56 IST" name="init" finished-at="2019-12-31T10:08:19 IST" duration-ms="22884" status="FAIL">
           <exception class="java.lang.NumberFormatException">
             <message>
-              <![CDATA[null]]>
+              <![CDATA[For input string: "51,900"]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NumberFormatException: null
-at java.base/java.lang.Integer.parseInt(Integer.java:620)
+              <![CDATA[java.lang.NumberFormatException: For input string: "51,900"
+at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+at java.base/java.lang.Integer.parseInt(Integer.java:658)
 at java.base/java.lang.Integer.parseInt(Integer.java:776)
-at Pages.SearchIphonePrice.test(SearchIphonePrice.java:66)
+at Pages.SearchIphonePrice.ComparePriceValue(SearchIphonePrice.java:61)
 at Test.SelectPriceValue.init(SelectPriceValue.java:28)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

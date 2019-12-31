@@ -8,9 +8,8 @@ import org.openqa.selenium.support.How;
 public class SearchIphonePrice {
 	
 	 WebDriver driver; 
-	 String fpkartPriceValue;
+	 String FpkartPriceValue;
 	 String AmazonPriceValues;
-	 
 	 
 	 public SearchIphonePrice(WebDriver driver) {
 		 this.driver = driver;
@@ -32,20 +31,18 @@ public class SearchIphonePrice {
 				                       + "/a[1]/span[1]/span[2]/span[2]") WebElement AmazonPriceValue;
 	 
 //	 Flipkart Methods 
-	 public void flipkartSearchBox(String value) {
+	 public void FlipkartSearchBox(String value) {
 		 SearchPhone.sendKeys(value);
 	 }
-	 public void flipkartSearchButton() {
+	 public void FlipkartSearchButton() {
 		 ClickButton.click();
 	 }
-	 public void flipkartClosebutton() {
+	 public void FlipkartClosebutton() {
 			Close.click();
 	 }
-	 public void flipkartGetPriceValue() {
+	 public void FlipkartGetPriceValue() {
 		String FlipkartPriceValue = PriceValue.getText();
-		String fpkartPriceValue = FlipkartPriceValue.substring(1, 7);
-		System.out.println(fpkartPriceValue); 
-		
+		FpkartPriceValue = FlipkartPriceValue.substring(1, 7);	
 	 }
 	 
 //	 Amazon Methods
@@ -57,24 +54,14 @@ public class SearchIphonePrice {
 			AmazonSearchButton.click();
 	 }
 	 public void AmazonSelectValue() {
-			String AmazonPriceValues = AmazonPriceValue.getText();
-			System.out.println(AmazonPriceValues);
-			
+			AmazonPriceValues = AmazonPriceValue.getText();	
 	 }
 	 
-	 public void test() {
-		 int i = Integer.parseInt(fpkartPriceValue);
-		 int j = Integer.parseInt(AmazonPriceValues);
-		 System.out.println(i);
-		 if(i>j) {
-			 System.out.println(i);
-		 }else {
-			 System.out.println(j);
-		 }
-		 
-	 }
-	 
-     
+	 public void ComparePriceValue() {
+		 int i = Integer.parseInt(FpkartPriceValue.replaceAll(",","").trim());
+		 int j = Integer.parseInt(AmazonPriceValues.replaceAll(",","").trim());
+		 System.out.println(i<j?i:j); 
+	 }   
 }
 
 

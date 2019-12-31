@@ -13,11 +13,11 @@ public class SelectPriceValue extends TestBase {
 //		Flipkart
 		driver.get("https://www.flipkart.com/");
 		SearchIphonePrice iphonepricevalue = PageFactory.initElements(driver, SearchIphonePrice.class);
-		iphonepricevalue.flipkartClosebutton();
+		iphonepricevalue.FlipkartClosebutton();
 		Thread.sleep(1000);
-		iphonepricevalue.flipkartSearchBox("iphone xr 64gb yellow");
-		iphonepricevalue.flipkartSearchButton();
-		iphonepricevalue.flipkartGetPriceValue();
+		iphonepricevalue.FlipkartSearchBox("iphone xr 64gb yellow");
+		iphonepricevalue.FlipkartSearchButton();
+		iphonepricevalue.FlipkartGetPriceValue();
 		
 //		Amazon
 		driver.get("https://www.amazon.in/");	
@@ -25,7 +25,7 @@ public class SelectPriceValue extends TestBase {
 		iphonepricevalue.AmazonButtonClick();
 		Thread.sleep(1000);
 		iphonepricevalue.AmazonSelectValue();
-		iphonepricevalue.test();
+		iphonepricevalue.ComparePriceValue();
 	}
 	
 }
